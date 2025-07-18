@@ -8,7 +8,7 @@ class Task(Base):
     id = Column(Integer,primary_key=True,index=True)
     title = Column(String, nullable=False)
     description = Column(String)
-    deadline = Column(DateTime)
+    deadline = Column(DateTime(timezone=True))
     priority = Column(Integer, default=1)
     status = Column(String, default="pending")
     user_id = Column(Integer, ForeignKey("users.id"))

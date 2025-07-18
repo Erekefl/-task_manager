@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.schemas.user import UserCreate, UserRead
 from app.services.user_service import create_user, get_user_by_email, get_user_name, update_user, delete_user,get_user_id
 from app.core.database import async_session
-from app.models.user import User
+
 
 router = APIRouter()
 

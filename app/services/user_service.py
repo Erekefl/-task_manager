@@ -15,7 +15,8 @@ async def create_user(db: AsyncSession, user: UserCreate):
     db_user = User(
         username=user.username,
         email=user.email,
-        hashed_password=hashed_password
+        hashed_password=hashed_password,
+        city=user.city
     )
     db.add(db_user)
     await db.commit()
@@ -32,6 +33,7 @@ async def update_user(db: AsyncSession, user_id: int, user_update: UserCreate):
     db_user.username = user_update.username
     db_user.email = user_update.email
     db_user.hashed_password = pwd_context.hash(user_update.password)
+    db_user.city=user_update.city
     await db.commit()
     await db.refresh(db_user)
     return db_user
